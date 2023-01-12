@@ -1,0 +1,50 @@
+Notes for Java:
+1) Problem Sets
+-> Usually don't need import for libraries
+-> Do not use the libraries that simplifiy the problem/unless specified
+
+Do not use advanced features (when learning)
+- Typically, makes code shorter
+- often hides what is really happening
+
+Use the IntelliJ debugger
+- Click "debug" inside IntelliJ (Next to play button)
+- Set a breakpoint
+
+Different Programming Paradigms
+eg. Object-oriented languages
+Java, C++
+- Code re-use
+- Modular
+
+Object-oriented Paradigm
+Abstraction
+- Separatable interface from implementation
+
+Encapsulation
+- Hide implementation (only make interface publicly visible)
+
+Inheritance
+- Build new classes by extending existing classes
+
+Polymorphism
+- same interface, but different behaviour based on context
+
+
+Object has state/behaviour
+Object represents nouns
+
+Principle of Java:
+- Everything is an Object
+- A class is a template for producing an Object 
+- An object is an instance of the class
+(a recipe for how to make a object)
+- Everything has a type
+
+use compareTo for string
+"==" in Java compares whether the two things in question are the same object
+
+Interface
+-> set of rules when interacting with an object
+
+private -> only in the same class
