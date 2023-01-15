@@ -14,16 +14,20 @@ public class ShiftRegister implements ILFShiftRegister {
     // Create your class variables here
     ///////////////////////////////////
     // TODO:
-    private int[] initialSeed = { 0, 1, 0, 1, 1, 1, 1, 0, 1 };
+    private int[] initialSeed;
     private int size;
     private int tap;
 
+    public int[] getInitialSeed() {
+        return this.initialSeed;
+    }
     ///////////////////////////////////
     // Create your constructor here:
     ///////////////////////////////////
-    ShiftRegister(int size, int tap) {
+    public ShiftRegister(int size, int tap) {
         // TODO:
         this.initialSeed = new int[size];
+        this.size = size;
         this.tap = tap;
     }
 
@@ -38,7 +42,21 @@ public class ShiftRegister implements ILFShiftRegister {
     @Override
     public void setSeed(int[] seed) {
         // TODO:
-        this.initialSeed = seed;
+        // Error checking
+        for (int i = 0; i < seed.length; i++) {
+            if (seed[i] != 0) {
+                if (seed[i] != 1) {
+                    System.out.println("Error, seed provided is invalid.");
+                    return;
+                }
+            }
+        }
+        // Given input array is such that least significant bit is on index 0
+        // Basically the order is reversed
+        for (int j = seed.length; j > 0; j--) {
+            this.initialSeed[seed.length - j] = seed[j - 1];
+        }
+
     }
 
     /**
@@ -49,17 +67,25 @@ public class ShiftRegister implements ILFShiftRegister {
     @Override
     public int shift() {
         // TODO:
-        int[] placeholderArr = {};
-        for (int j = 0; j < initialSeed.length - 1; j++) {
-            placeholderArr[j] = 0;
+        int mostSignificantBit = this.initialSeed[0];
+        int tapBit = this.initialSeed[this.initialSeed.length - this.tap - 1];
+        // Step 1: Calculate feedback bit
+        int feedbackBit = mostSignificantBit ^ tapBit;
+
+        // Step 2 & 3: Drop significant bit + Move every bit to left
+        // {0,1,1}
+        // {1, 1}
+        for (int i = 0; i < this.initialSeed.length - 1; i++) {
+            this.initialSeed[i] = this.initialSeed[i + 1];
         }
-        for (int i = 1; i < initialSeed.length; i++) {
-            placeholderArr[i - 1] = initialSeed[i];
-        }
-        placeholderArr[placeholderArr.length - 1] = 0;
-        this.initialSeed = placeholderArr;
-        return 0;
+
+        // Step 4
+        this.initialSeed[this.initialSeed.length - 1] = feedbackBit;
+
+        // Return int value
+        return feedbackBit;
     }
+
 
     /**
      * generate
@@ -72,8 +98,7 @@ public class ShiftRegister implements ILFShiftRegister {
         // TODO:
         String finalBits = "";
         for (int i = 0; i < k; i++) {
-            shift();
-            finalBits += Integer.toString(initialSeed[i]);
+            finalBits += Integer.toString(shift());
         }
         return binaryToDecimal(Integer.parseInt(finalBits));
     }

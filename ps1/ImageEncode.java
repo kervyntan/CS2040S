@@ -66,7 +66,18 @@ public class ImageEncode {
              * Use your shift register implementation, and set
              * the tap and the correct seed.
              */
-            ILFShiftRegister shiftReg = null;
+//            ILFShiftRegister shiftReg = null;
+            ILFShiftRegister shiftReg = new ShiftRegister(13, 7);
+            int[] seedInput = {1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0};
+//            int[] seedInput = { 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1};
+//            int[] seedInput = {0, 1, 0, 1, 1, 1, 1, 0, 1};
+            shiftReg.setSeed(seedInput);
+//            for (int i = 0; i <= seedInput.length; i++) {
+//                int j = shiftReg.shift();
+//                System.out.print(j);
+//            }
+
+
 
             ////////////////////////////////
             // Transform the image

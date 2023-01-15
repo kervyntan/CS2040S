@@ -61,9 +61,32 @@ public class ShiftRegisterTest {
     }
 
     /**
+     * Tests if shift register has size 1
+     */
+    @Test
+    public void testShiftRegister1 () {
+
+    }
+
+    /**
+     * Test if seed size is bigger than given size
+     */
+    @Test
+    public void testSeedSize () {
+    }
+
+    /**
      * Tests with erroneous seed.
      */
     @Test
+    // Question 2b:
+    // Throw an exception to the user, and print out an error message using System.out.println
+    // Testing:
+    /*
+        Check the length of the seed. If it exceeds the length of the given register, throw
+        the above exception/error message.
+
+     */
     public void testError() {
         ILFShiftRegister r = getRegister(4, 1);
         int[] seed = { 1, 0, 0, 0, 1, 1, 0 };
