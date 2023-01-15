@@ -65,14 +65,23 @@ public class ShiftRegisterTest {
      */
     @Test
     public void testShiftRegister1 () {
-
-    }
+        ILFShiftRegister r = getRegister(1, 1);
+        int[] seed = {1};
+        r.setSeed(seed);
+        r.shift();
+        r.generate(2);
+}
 
     /**
      * Test if seed size is bigger than given size
      */
     @Test
     public void testSeedSize () {
+        ILFShiftRegister r = getRegister(4, 1);
+        int[] seed = {1,0,1,0,1};
+        r.setSeed(seed);
+        r.shift();
+        r.generate(4);
     }
 
     /**
