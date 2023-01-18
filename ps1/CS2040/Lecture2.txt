@@ -1,0 +1,20 @@
+In Java, order of growth for adding a String depends on the length of the string
+eg. final = final + "?" 
+vs final = final + "??" is different!!
+
+if / else statements:
+cost = max(cost of first, cost of second) <= (cost of first) + (cost of second)
+Order of growth -> combination of cost of if and else bodies
+
+
+**Google terms if unsure
+
+Pre-condition (Pre-requisite for algorithm to be applied)
+eg. Sorted array for binary SEARCH
+
+Post-condition 
+
+Loop invariant
+
+Time Complexity Analysis
+

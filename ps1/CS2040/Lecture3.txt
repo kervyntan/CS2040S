@@ -1,0 +1,2 @@
+BINARY SEARCH
+- For monotonic functions (only increase/decrease)
