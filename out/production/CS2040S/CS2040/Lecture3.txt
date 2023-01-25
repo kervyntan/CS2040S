@@ -1,0 +1,15 @@
+BINARY SEARCH
+- For monotonic functions (only increase/decrease)
+
+Binary Search is NOT just for searching arrays:
+- Can use on a complicated function
+- But function must be monotonic (only increasing/decreasing)
+
+Local Maxima
+- Value is greater than or equals to its left and right neighbor (Array)
+
+key Property (Invariant):
+- If we recurse in the right half, then there exists a peak in the right half.
+
+Peak finding:
+- Peak Element -> an element that is strictly greater than it's neighbors
